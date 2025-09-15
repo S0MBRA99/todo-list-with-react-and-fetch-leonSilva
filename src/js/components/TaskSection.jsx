@@ -4,12 +4,13 @@ function TaskSection({ todo, setTodo, putToDo, deleteToDo }) {
   
   const [isEditing,setIsEditing]= useState(-1)
   const [tempText,setTempText]= useState('')
+  const [isLengthSentence,setIsLengthSentence]= useState(false)
 
   return (
     <section className="mt-5 text-center w-50 mx-auto">
       {todo.map((element, index) => {
         return (
-          <div className="border rounded mb-1">
+          <div className="rounded-2 mb-1">
             {isEditing === index?(
               <input 
               value={tempText}
@@ -31,17 +32,22 @@ function TaskSection({ todo, setTodo, putToDo, deleteToDo }) {
                   )
                 }
               }}
-              className="form-control"
-               />
+              className="form-control mt-3 px-1 py-1"/>
             ):(
-              <p className="my-auto overflow-scroll" key={index}>
-                {element.label}
-              </p>
+              element.label.length > 100? (
+                <p className="my-auto overflow-scroll bg-light mt-3 px-1 py-1" key={index}>
+                  {element.label}
+                </p>
+              ):(
+                <p className="my-auto bg-light mt-3 px-1 py-1" key={index}>
+                  {element.label}
+                </p>
+                )
             )}
-            <div className="d-flex justify-content-evenly">
+            <div className="d-flex justify-content-evenly bg-light">
               <button
                 type="button"
-                className="border-0 rounded"
+                className="border-0 rounded bg-input-loggin-button mb-2 mt-2"
                 onClick={() => {
                   setTempText(element.label)
                   setIsEditing(isEditing === -1? index:-1)}}
@@ -50,7 +56,7 @@ function TaskSection({ todo, setTodo, putToDo, deleteToDo }) {
               </button>
               <button
                 type="button"
-                className="border-0 rounded"
+                className="border-0 rounded bg-input-loggin-button mb-2 mt-2"
                 onClick={() => {
                   setTodo(
                     todo.map((label, i) => {
@@ -74,7 +80,7 @@ function TaskSection({ todo, setTodo, putToDo, deleteToDo }) {
               </button>
               <button
                 type="button"
-                className="border-0 rounded"
+                className="border-0 rounded bg-input-loggin-button mb-2 mt-2"
                 onClick={() => {
                   let changes = todo.filter((element, i) => i != index);
                   deleteToDo(element.id);

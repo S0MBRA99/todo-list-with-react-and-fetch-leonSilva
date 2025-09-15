@@ -1,1 +1,11 @@
+body {
+    background-image: url(../img/ToDo-List-bg.png);
+    background-size: cover;        
+    background-position: center;   /* centra la imagen */
+    background-repeat: no-repeat;  /* evita repetición */
+    background-attachment: fixed;  /* fija el fondo al scroll */
+}
 
+.bg-input-loggin-button{
+    background-color: antiquewhite;
+}

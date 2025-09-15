@@ -3,14 +3,15 @@ import React from "react";
 function LoggedIn({ setIsLoggedIn, setUsername, username, createToDoUser }) {
   return (
     <form className="border d-flex justify-content-center align-items-center vh-100">
-      <div>
+      <div className="bg-input-loggin-button border rounded px-4 py-4">
         <label htmlFor="userName" className="form-label">
-          <strong>Add your User / Create User</strong>
+          <h4>Add your User / Create User</h4>
         </label>
         <input
           type="user"
-          className="form-control"
+          className="form-control text-center"
           id="userName"
+          placeholder="type you user ..."
           onKeyDown={(e) => {
             if (e.key === "Enter") {
               e.preventDefault();

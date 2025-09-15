@@ -115,7 +115,7 @@ function Home() {
       ):(
     <>
       <header>
-       <h1 className="text-center mt-4">Leon Silva's To-Do List</h1>
+       <h1 className="text-center mt-4">{username}'s To-Do List</h1>
       </header>
       <main>
         <FormHome todo={todo} setTodo={setTodo} postToDo={postToDo}/>
